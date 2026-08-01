@@ -167,6 +167,111 @@ lab/FINDINGS.md
 ```
 
 ---
+---
+
+# Evidence & Screenshots
+
+The following screenshots provide practical evidence of the implementation, Kubernetes configuration, container security, application development, and debugging activities performed during this project.
+
+## 1. Helm Gateway Service & Deployment Validation
+
+This screenshot shows the Helm gateway Service configuration and deployment validation process. It demonstrates Kubernetes Service configuration, configurable ports, workload readiness checks, and service-to-service communication testing.
+
+**Related files:**
+- `lab/scenario.sh`
+- `lab/broken-chart/templates/gateway.yaml`
+
+![Helm Gateway Service and Validation](screenshots/01-helm-gateway-validation.jpeg)
+
+---
+
+## 2. Helm Values & Backend Configuration
+
+This screenshot demonstrates Helm-based backend configuration, including the application port, application mode, application name, and version. It also shows configuration used while troubleshooting backend and reporter workload communication.
+
+**Related files:**
+- `chart/values.yaml`
+- `lab/broken-chart/templates/backend.yaml`
+- `lab/broken-chart/templates/reporter.yaml`
+
+![Helm Values and Backend Configuration](screenshots/02-helm-values-backend-config.jpeg)
+
+---
+
+## 3. Container Security & Kubernetes Migration Job
+
+This screenshot demonstrates container security hardening using a dedicated non-root user and the Kubernetes migration Job configuration with failure handling.
+
+It provides evidence of:
+
+- Non-root container execution
+- Least-privilege container configuration
+- Kubernetes Job configuration
+- Failure handling with `restartPolicy: OnFailure`
+
+**Related files:**
+- `service/Dockerfile`
+- `lab/broken-chart/templates/migrate-job.yaml`
+
+![Container Security and Migration Job](screenshots/03-container-security-migration-job.jpeg)
+
+---
+
+## 4. FastAPI Application & Health Endpoint
+
+This screenshot shows the FastAPI application implementation, including the application endpoint and Kubernetes-friendly `/healthz` health-check endpoint.
+
+The application exposes runtime information such as the application name, version, and pod hostname, which helps validate the application after deployment.
+
+**Related file:**
+- `service/main.py`
+
+![FastAPI Application and Health Endpoint](screenshots/04-fastapi-health-endpoints.jpeg)
+
+---
+
+## 5. Docker Image Build & Container Packaging
+
+This screenshot demonstrates the Docker image build and container packaging process.
+
+The Dockerfile packages the Python application, installs dependencies, configures the application environment, runs the application as a non-root user, and exposes the application port for Kubernetes deployment.
+
+**Related file:**
+- `service/Dockerfile`
+
+![Docker Image Build](screenshots/05-docker-build.jpeg)
+
+---
+
+## 6. Kind Kubernetes Cluster Setup
+
+This screenshot demonstrates the creation and setup of the local Kubernetes environment using Kind.
+
+It provides evidence of the project setup process, including Kubernetes cluster initialization and preparation of the environment for deploying and testing the application.
+
+**Related files:**
+- `setup.sh`
+- `kind-config.yaml`
+
+![Kind Kubernetes Cluster Setup](screenshots/06-kind-cluster-setup.jpeg)
+
+---
+
+## Evidence Summary
+
+These screenshots complement the source code, Helm charts, Kubernetes manifests, and setup scripts contained in this repository.
+
+Together, they provide practical evidence of:
+
+- Docker containerization
+- Container security hardening
+- FastAPI application development
+- Helm-based Kubernetes deployment
+- Kubernetes cluster provisioning with Kind
+- Kubernetes health checks
+- Service configuration
+- Kubernetes debugging and troubleshooting
+- Deployment validation
 
 # Deliberately Skipped Items
 
