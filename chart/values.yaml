@@ -1,0 +1,53 @@
+# Number of application replicas
+replicaCount: 2
+
+# Docker image configuration
+image:
+  repository: enterprisebot-service
+  tag: v1
+  pullPolicy: IfNotPresent
+
+# Application configuration (loaded via ConfigMap)
+config:
+  appName: EnterpriseBot
+  version: "1.0.0"
+
+# Kubernetes Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: nginx
+  host: demo.local
+  path: /
+  pathType: Prefix
+
+# Resource requests and limits
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"
+
+# Pod Security Context
+podSecurityContext: {}
+
+# Container Security Context
+securityContext:
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+
+# Node scheduling (optional)
+nodeSelector: {}
+
+# Pod tolerations (optional)
+tolerations: []
+
+# Pod affinity (optional)
+affinity: {}
