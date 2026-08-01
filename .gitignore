@@ -1,0 +1,21 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Docker
+*.log
+
+# Kubernetes
+.kube/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
